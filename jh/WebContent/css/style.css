@@ -1,0 +1,98 @@
+body{
+    width: 1300px;
+   
+    margin: 0 auto;
+}
+
+header{
+    height: 100px;
+    display : flex;
+    justify-content : space-between;
+    align-items: center;
+   
+
+}
+
+a{
+    text-decoration: none;
+    color:#bddeff;
+   
+}
+
+#logo{
+    width : 30%;
+    
+    font-size : 70px;
+    font-weight: bolder;
+}
+
+#menu{
+    width:40%;
+    display:flex;
+    justify-content:space-around;
+    font-size:20px;
+}
+#menu a{
+	color:black;
+}
+
+#menu a:hover{
+    
+    border-bottom: 1px solid black;
+
+}
+hr{
+
+    color:#bddeff;
+}
+
+
+
+#isLogin{
+    height: 50px;
+    text-align:right;
+
+}
+#image{}
+
+
+#image img{
+    width: 100%;
+}
+
+fieldset{
+    width: 40%;
+    margin: 0 auto;
+    border:3px solid #bddeff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+    
+}
+
+legend{
+    text-align: center;
+}
+
+form input{
+    border:0;
+    border-bottom: 1px solid black;
+    outline: none;
+}
+
+#button {
+    display: flex;
+    justify-content: space-around;
+}
+
+#button input{
+    border:0;
+    background-color:#bddeff;
+    padding : 5px 10px;
+    border-radius:15px;
+}
+
+footer{
+   text-align:center;
+}

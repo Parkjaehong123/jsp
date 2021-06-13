@@ -17,7 +17,7 @@ public class UserDAO implements IUserDAO {
 	private UserDAO() {
 		try {
 			InitialContext ct = new InitialContext();
-			ds = (DataSource) ct.lookup("java:comp/env/jdbc/myOracle");
+			ds = (DataSource) ct.lookup("oracle.jdbc.driver.OracleDriver";);
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}
@@ -38,7 +38,7 @@ public class UserDAO implements IUserDAO {
 	public boolean confirmId(String id) {
 		boolean flag = false;
 		
-		String sql = "SELECT * FROM my_user WHERE user_id=?";
+		String sql = "SELECT * FROM MEMBER WHERE ID ='%s' and pw='%s'";
 		
 	
 		
@@ -73,7 +73,7 @@ public class UserDAO implements IUserDAO {
 	@Override
 	public int userCheck(String id, String pw) {
 		int check = 0;
-		String sql = "SELECT * FROM my_user WHERE user_id=?";
+		String sql = "SELECT * FROM MEMBER WHERE ID ='%s' and pw='%s'";
 		try(Connection conn = ds.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			pstmt.setString(1, id);
@@ -96,7 +96,7 @@ public class UserDAO implements IUserDAO {
 	@Override
 	public UserVO getUserInfo(String id) {
 		UserVO user = null;
-		String sql = "SELECT * FROM my_user WHERE user_id=?";
+		String sql = "SELECT * FROM MEMBER WHERE ID ='%s' and pw='%s'";
 		try(Connection conn = ds.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			pstmt.setString(1, id);
@@ -119,7 +119,7 @@ public class UserDAO implements IUserDAO {
 
 	@Override
 	public void changePassword(String id, String newPw) {
-		String sql = "UPDATE my_user SET user_pw=? WHERE user_id=?";
+		String sql = "UPDATE MEMBER SET user_pw=? WHERE user_id=?";
 		try(Connection conn = ds.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			pstmt.setString(1, newPw);
@@ -132,7 +132,7 @@ public class UserDAO implements IUserDAO {
 
 	@Override
 	public void updateUser(UserVO vo) {
-		String sql = "UPDATE my_user "
+		String sql = "UPDATE MEMBER "
 				+ "SET user_name=?, user_email=?, user_address=? "
 				+ "WHERE user_id=?";
 		try(Connection conn = ds.getConnection();
